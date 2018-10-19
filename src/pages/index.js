@@ -36,6 +36,9 @@ const GritGrid = styled.div`
       width:20%;
     }
   }
+  @media only screen and (max-width:500px){
+    height:90vh;
+    }
 `
 const IndexPage = () => (
   <Layout>
@@ -46,13 +49,13 @@ const IndexPage = () => (
       <input type="hidden" name="cmd" value="_s-xclick"/>
       <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
           <input type="hidden" name="on0" value="Sizes"></input>
-          <select name="os0" style={{textAlign:'center', margin:'0 auto'}}>
-            <option value="small">small </option>
-            <option value="medium">medium </option>
-            <option value="large">large </option>
-            <option value="xl">xl </option>
-          </select>
-    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+      <select name="os0">
+        <option value="small">small </option>
+        <option value="medium">medium </option>
+        <option value="large">large </option>
+        <option value="xl">xl </option>
+      </select>
+      <input style={{margin:'0 auto'}}type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
    </GritGrid>
