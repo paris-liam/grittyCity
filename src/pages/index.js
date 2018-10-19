@@ -5,13 +5,13 @@ import shirt from '../images/1.jpg';
 import Layout from '../components/layout'
 import styled from 'styled-components';
 import pretzel from '../images/PRETZEL.gif';
-import creamcheese from '../images/creamcheese.jpg';
+import creamcheese from '../images/creamcheese.png';
 
 const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:auto;
+  height:100vh;
   grid-template-rows:auto;
   grid-template-columns:auto auto auto;
   grid-template-areas:'imageRow mainRow image2Row';
@@ -19,7 +19,7 @@ const GritGrid = styled.div`
     margin: 0 auto
   }
   @media only screen and (max-width:700px){
-    height:90vh;
+    height:auto;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
     grid-template-areas: 'mainRow mainRow'
@@ -51,18 +51,23 @@ const mainRow = styled.div`
       width:20%;
     }
   }`
-const imageRow = styled.div`
+
+const addImages = styled.div`
   grid-template-columns:auto;
   grid-template-rows: auto auto auto;
+  grid-row-gap:5vh;
+  img{
+    width:40%;
+  }
 `
 const IndexPage = () => (
   <Layout>
    <GritGrid>
-   <imageRow style={{gridArea:'imageRow'}}>
+   <addImages style={{gridArea:'imageRow'}}>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
-   </imageRow>
+   </addImages>
      <mainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
@@ -80,11 +85,11 @@ const IndexPage = () => (
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
    </mainRow>
-   <imageRow style={{gridArea:'image2Row'}}>
+   <addImages style={{gridArea:'image2Row'}}>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
-   </imageRow>
+   </addImages>
    </GritGrid>
   </Layout>
 )
