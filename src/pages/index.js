@@ -4,18 +4,29 @@ import HeaderImg from '../images/headerIMG.png';
 import shirt from '../images/1.jpg';
 import Layout from '../components/layout'
 import styled from 'styled-components';
-
+import pretzel from '../images/PRETZEL.gif';
+import creamcheese from '../images/creamcheese.jpg';
 
 const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:100vh;
-  grid-template-rows:auto auto auto;
-  grid-template-columns: auto;
+  height:auto;
+  grid-template-rows:auto;
+  grid-template-columns:auto auto auto;
+  grid-template-areas:'imageRow mainRow image2Row';
   & > *{
     margin: 0 auto
   }
+  @media only screen and (max-width:700px){
+    height:90vh;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 'mainRow mainRow'
+    }
+`
+const mainRow = styled.div`
+  grid-area:'mainrow';
   form{
     background-color:black;
     color:white;
@@ -39,14 +50,20 @@ const GritGrid = styled.div`
     @media only screen and (min-width:1200px){
       width:20%;
     }
-  }
-  @media only screen and (max-width:500px){
-    height:90vh;
-    }
+  }`
+const imageRow = styled.div`
+  grid-template-columns:auto;
+  grid-template-rows: auto auto auto;
 `
 const IndexPage = () => (
   <Layout>
    <GritGrid>
+   <imageRow style={{gridArea:'imageRow'}}>
+      <img src={creamcheese}></img>
+      <img src={pretzel}></img>
+      <img src={creamcheese}></img>
+   </imageRow>
+     <mainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -62,6 +79,12 @@ const IndexPage = () => (
       <input style={{margin:'0 auto'}}type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
+   </mainRow>
+   <imageRow style={{gridArea:'image2Row'}}>
+      <img src={pretzel}></img>
+      <img src={creamcheese}></img>
+      <img src={pretzel}></img>
+   </imageRow>
    </GritGrid>
   </Layout>
 )
