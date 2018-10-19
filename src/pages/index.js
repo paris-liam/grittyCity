@@ -17,7 +17,7 @@ const GritGrid = styled.div`
     margin: 0 auto
   }
   form{
-    background-color:black;
+    background-color:transparent;
     color:white;
     text-align:center;
     margin-top:2vh;
@@ -27,7 +27,7 @@ const GritGrid = styled.div`
     grid-row-gap: 2vh;
   }
   img{
-    width:100%;
+    width:80%;
     @media only screen and (min-width:800px){
       width:40%;
     }
