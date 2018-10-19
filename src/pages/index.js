@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-
+import HeaderImg from '../images/HeaderImg.png';
 import Layout from '../components/layout'
 
 const IndexPage = () => (
