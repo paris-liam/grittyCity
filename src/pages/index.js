@@ -53,6 +53,7 @@ const mainRow = styled.div`
   }`
 
 const addImages = styled.div`
+  padding: 3vh 0;
   grid-template-columns:auto;
   grid-template-rows: auto auto auto;
   grid-row-gap:5vh;
