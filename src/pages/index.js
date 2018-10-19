@@ -27,7 +27,7 @@ const GritGrid = styled.div`
 `
 const mainRow = styled.div`
   grid-area:'mainrow';
-  form{
+  & > form{
     background-color:black;
     color:white;
     width:100%;
@@ -35,14 +35,14 @@ const mainRow = styled.div`
     margin-top:2vh;
     display:grid;
     grid-template-columns:auto;
-    grid-template-rows:auto;
+    grid-template-rows:auto auto;
     grid-row-gap: 2vh;
     select{
       width:30%;
       margin: 0 auto;
     }
   }
-  img{
+  & > img{
     width:80%;
     @media only screen and (min-width:800px){
       width:40%;
@@ -57,7 +57,7 @@ const addImages = styled.div`
   grid-template-columns:auto;
   grid-template-rows: auto auto auto;
   grid-row-gap:5vh;
-  img{
+  & > img{
     width:40%;
   }
 `
@@ -72,7 +72,7 @@ const IndexPage = () => (
      <mainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
-   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+   <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
       <input type="hidden" name="cmd" value="_s-xclick"/>
       <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
           <input type="hidden" name="on0" value="Sizes"></input>
