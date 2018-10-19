@@ -26,6 +26,10 @@ const GritGrid = styled.div`
     grid-template-columns:auto;
     grid-template-rows:auto;
     grid-row-gap: 2vh;
+    select{
+      width:30%;
+      margin: 0 auto;
+    }
   }
   img{
     width:80%;
