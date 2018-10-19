@@ -19,6 +19,7 @@ const GritGrid = styled.div`
   form{
     background-color:transparent;
     color:white;
+    width:100%;
     text-align:center;
     margin-top:2vh;
     display:grid;
