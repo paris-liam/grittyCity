@@ -17,7 +17,7 @@ const GritGrid = styled.div`
     margin: 0 auto
   }
   form{
-    background-color:transparent;
+    background-color:black;
     color:white;
     width:100%;
     text-align:center;
