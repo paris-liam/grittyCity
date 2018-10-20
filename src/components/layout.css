@@ -1,12 +1,14 @@
-/*html {
+html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-}*/
+}
 body {
   margin:0 0 0 0;
+  height:100%;
+  background-color:black;
 }
-/*article,
+article,
 aside,
 details,
 figcaption,
@@ -621,4 +623,3 @@ pre tt:after {
     font-size: 100%;
   }
 }
-*/

@@ -11,7 +11,7 @@ const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:100%;
+  height:95%;
   grid-template-rows:1fr;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';

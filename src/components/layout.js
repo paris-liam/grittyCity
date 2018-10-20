@@ -11,64 +11,62 @@ import HeaderImg from '../images/headerIMG.png';
 import './layout.css'
 
 const GritGrid = styled.div`
-  margin:0 0;
   background-color:black;
   margin:0;
   display:grid;
   height:100vh;
-  grid-template-rows:auto;
+  grid-template-rows:1fr;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
   & > *{
     margin: 0 auto
   }
   @media only screen and (max-width:700px){
-    height:100vh;
+    height:100%;
     grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    grid-template-areas: 'mainRow mainRow';
-    & > div#image1{
-      display:none !important;
-    }
-    & > div#image2{
-      display:none !important;
-    }
+    grid-template-rows: auto;
+    grid-template-areas: 'mainRow';
    }
-& > div#image1{
-  background-color:black;
-  justify-items:center;
-  align-items:center;
-  padding: 3vh 0;
-  grid-template-columns:auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap:5vh;
-  display:grid;
-  & > img{
-    max-width:40% !important;
-  }
-}
-& > div#image2{
-  background-color:black;
-  justify-items:center;
-  align-items:center;
-  padding: 3vh 0;
-  grid-template-columns:auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap:5vh;
-  display:grid;
-  & > img{
-    max-width:40% !important;
-  }
-}
+`
 
-& > div#mainRow1{
-  background-color:black;
+const ImageRow1 = styled.div`
+  grid-area:imageRow;
+  justify-items:center;
+  align-items:center;
+  grid-template-columns:auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap:5vh;
+  display:grid;
+  & > img{
+    width:50%;
+  }
+  @media only screen and (max-width:700px){
+    display:none !important;
+  }
+  `
+
+  const ImageRow2 = styled.div`
+  grid-area:image2Row;
+    justify-items:center;
+  align-items:center;
+  grid-template-columns:auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap:5vh;
+  display:grid;
+  & > img{
+    width:50%;
+  }
+  @media only screen and (max-width:700px){
+display:none !important;}
+  `
+  const MainRow = styled.div`
+  grid-area:mainRow;
   display:grid;
   grid-template-rows:auto auto auto;
   grid-template-columns: auto;
   & > img{
     margin: 0 auto;
-    width:100%;
+    width:65%;
   }
   & > form{
     background-color:black;
@@ -88,17 +86,13 @@ const GritGrid = styled.div`
 
   & > img{
 
-    width:80%;
     @media only screen and (min-width:800px){
-      width:50%;
     }
     @media only screen and (min-width:1200px){
-      width:70%;
     }
 
   }
-}
-`
+  `
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -123,12 +117,12 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <GritGrid>
-   <div id='image1' style={{gridArea:'imageRow'}}>
+   <ImageRow1>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
-   </div>
-     <div id='mainRow1' style={{gridArea:'mainRow'}}>
+   </ImageRow1>
+     <MainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
@@ -144,12 +138,12 @@ const Layout = ({ children }) => (
       <input style={{margin:'0 auto'}}type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
-   </div>
-   <div id='image2' style={{gridArea:'image2Row'}}>
+   </MainRow>
+   <ImageRow2>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
-   </div>
+   </ImageRow2>
    </GritGrid>
       </>
     )}
