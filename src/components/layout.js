@@ -14,7 +14,7 @@ const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:100vh;
+  height:80%;
   grid-template-rows:1fr;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
@@ -29,8 +29,7 @@ const GritGrid = styled.div`
    }
 `
 
-const ImageRow1 = styled.div`
-  grid-area:imageRow;
+const ImageRow = styled.div`
   justify-items:center;
   align-items:center;
   grid-template-columns:auto;
@@ -38,35 +37,26 @@ const ImageRow1 = styled.div`
   grid-row-gap:5vh;
   display:grid;
   & > img{
-    width:50%;
+    width:60%;
   }
   @media only screen and (max-width:700px){
     display:none !important;
   }
+  @media only screen and (min-width:1200px){
+      & > img{
+        margin: 0 auto;
+        width:40%;
+      }
+    }
   `
-
-  const ImageRow2 = styled.div`
-  grid-area:image2Row;
-    justify-items:center;
-  align-items:center;
-  grid-template-columns:auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap:5vh;
-  display:grid;
-  & > img{
-    width:50%;
-  }
-  @media only screen and (max-width:700px){
-display:none !important;}
-  `
-  const MainRow = styled.div`
+const MainRow = styled.div`
   grid-area:mainRow;
   display:grid;
   grid-template-rows:auto auto auto;
   grid-template-columns: auto;
   & > img{
     margin: 0 auto;
-    width:65%;
+    width:70%;
   }
   & > form{
     background-color:black;
@@ -84,14 +74,12 @@ display:none !important;}
     }
   }
 
-  & > img{
-
-    @media only screen and (min-width:800px){
-    }
     @media only screen and (min-width:1200px){
+      & > img{
+        margin: 0 auto;
+        width:50%;
+      }
     }
-
-  }
   `
 
 const Layout = ({ children }) => (
@@ -117,11 +105,11 @@ const Layout = ({ children }) => (
           <html lang="en" />
         </Helmet>
         <GritGrid>
-   <ImageRow1>
+   <ImageRow style={{gridArea:'imageRow'}}>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
-   </ImageRow1>
+   </ImageRow>
      <MainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
@@ -139,11 +127,11 @@ const Layout = ({ children }) => (
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
    </MainRow>
-   <ImageRow2>
+   <ImageRow style={{gridArea:'image2Row'}}>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
-   </ImageRow2>
+   </ImageRow>
    </GritGrid>
       </>
     )}
