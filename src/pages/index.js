@@ -11,57 +11,60 @@ const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:100vh;
-  grid-template-rows:100vh;
+  height:100%;
+  grid-template-rows:1fr;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
   & > *{
     margin: 0 auto
   }
   @media only screen and (max-width:700px){
-    height:100vh;
+    height:100%;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
     grid-template-areas: 'mainRow mainRow';
-    & > div#image1{
-      display:none !important;
-    }
-    & > div#image2{
-      display:none !important;
-    }
    }
-& > div#image1{
-  justify-items:center;
-  align-items:center;
-  padding: 3vh 0;
-  grid-template-columns:auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap:5vh;
-  display:grid;
-  & > img{
-    max-width:40% !important;
-  }
-}
-& > div#image2{
-  justify-items:center;
-  align-items:center;
-  padding: 3vh 0;
-  grid-template-columns:auto;
-  grid-template-rows: auto auto auto;
-  grid-row-gap:5vh;
-  display:grid;
-  & > img{
-    max-width:40% !important;
-  }
-}
 
-& > div#mainRow1{
+`
+
+const image1 = styled.div`
+  grid-area:imageRow;
+  justify-items:center;
+  align-items:center;
+  grid-template-columns:auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap:5vh;
+  display:grid;
+  & > img{
+    max-width:30% !important;
+  }
+
+  @media only screen and (max-width:700px){
+display:none !important;}
+  `
+
+  const image2 = styled.div`
+  grid-area:imageRow2;
+    justify-items:center;
+  align-items:center;
+  grid-template-columns:auto;
+  grid-template-rows: auto auto auto;
+  grid-row-gap:5vh;
+  display:grid;
+  & > img{
+    max-width:30% !important;
+  }
+  @media only screen and (max-width:700px){
+display:none !important;}
+  `
+  const mainRow = styled.div`
+  grid-area:mainRow
   display:grid;
   grid-template-rows:auto auto auto;
   grid-template-columns: auto;
   & > img{
     margin: 0 auto;
-    width:100%;
+    width:70%;
   }
   & > form{
     background-color:black;
@@ -90,18 +93,17 @@ const GritGrid = styled.div`
     }
 
   }
-}
-`
+  `
 
 const IndexPage = () => (
   <Layout>
    <GritGrid>
-   <div id='image1' style={{gridArea:'imageRow'}}>
+   <image1>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
-   </div>
-     <div id='mainRow1' style={{gridArea:'mainRow'}}>
+   </image1>
+     <mainRow>
    <img src={HeaderImg}  />
    <img src={shirt} />
    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
@@ -117,12 +119,12 @@ const IndexPage = () => (
       <input style={{margin:'0 auto'}}type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
    </form>
-   </div>
-   <div id='image2' style={{gridArea:'image2Row'}}>
+   </mainRow>
+   <image2>
       <img src={pretzel}></img>
       <img src={creamcheese}></img>
       <img src={pretzel}></img>
-   </div>
+   </image2>
    </GritGrid>
   </Layout>
 )
