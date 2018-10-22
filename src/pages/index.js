@@ -86,12 +86,14 @@ class IndexPage extends React.Component{
     this.toggleCloseup = this.toggleCloseup.bind(this);
   }
   componentDidMount(){
+    let image = document.getElementById('shirtImage')
     if(window.innerWidth >= 700){
-      document.getElementById('shirtImage').addEventListener('onMouseOver',this.toggleCloseup);
-      document.getElementById('shirtImage').addEventListener('onMouseOut',this.toggleCloseup);
+      image.addEventListener('mouseover',this.toggleCloseup);
+      image.addEventListener('mouseleave',this.toggleCloseup);
     }
     else{
-      document.getElementById('shirtImage').addEventListener('onClick',this.toggleCloseup);
+      console.log('click')
+      image.addEventListener('click',this.toggleCloseup);
     }
   }
   toggleCloseup(){
@@ -110,7 +112,7 @@ class IndexPage extends React.Component{
       </ImageRow>
         <MainRow>
       <img src={HeaderImg}  />
-      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={ () => this.toggleCloseup()}/>
+      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} />
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
          <input type="hidden" name="cmd" value="_s-xclick"/>
          <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
