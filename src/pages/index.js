@@ -12,7 +12,7 @@ const GritGrid = styled.div`
   display:grid;
   height:80%;
   grid-template-rows:1fr;
-  grid-template-columns:1fr 3fr 1fr;
+  grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
   & > *{
     margin: 0 auto
@@ -58,7 +58,8 @@ const MainRow = styled.div`
     width:70%;
   }
   & > #shirtImage{
-    width:50%;
+    width:90%;
+    padding-bottom:5vh;
   }
   & > form{
     background-color:black;
