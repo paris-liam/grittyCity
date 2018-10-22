@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
-import shirt from '../images/grit.jpeg';
+import shirt from '../images/GrittyCity.png';
+import closeup from '../images/closeup.jpg';
 import styled from 'styled-components';
 import pretzel from '../images/PRETZEL.gif';
 import creamcheese from '../images/creamcheese.png';
@@ -16,7 +17,7 @@ const GritGrid = styled.div`
   display:grid;
   height:80%;
   grid-template-rows:1fr;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:1fr 3fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
   & > *{
     margin: 0 auto
@@ -26,6 +27,9 @@ const GritGrid = styled.div`
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas: 'mainRow';
+   }
+   @media only screen and (min-width:1300px){
+    grid-template-columns:1fr 1fr 1fr;
    }
 `
 
@@ -58,6 +62,9 @@ const MainRow = styled.div`
     margin: 0 auto;
     width:70%;
   }
+  & > img.image2{
+    display:none;
+  }
   & > form{
     background-color:black;
     color:white;
@@ -74,10 +81,10 @@ const MainRow = styled.div`
     }
   }
 
-    @media only screen and (min-width:1200px){
+    @media only screen and (min-width:1300px){
       & > img{
         margin: 0 auto;
-        width:50%;
+        width:70%;
       }
     }
   `
@@ -112,7 +119,9 @@ const Layout = ({ children }) => (
    </ImageRow>
      <MainRow>
    <img src={HeaderImg}  />
-   <img src={shirt} />
+   <img className='image1' src={shirt}
+    onMouseOver={e => (e.currentTarget.src = closeup)}
+    onMouseOut={e => (e.currentTarget.src = shirt)} />
    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
       <input type="hidden" name="cmd" value="_s-xclick"/>
       <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
