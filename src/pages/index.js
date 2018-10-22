@@ -59,7 +59,6 @@ const MainRow = styled.div`
     color:white;
   & > p{
     margin: 0 auto;
-    font-size:.75em;
   }
   & > img{
     margin: 0 auto;
