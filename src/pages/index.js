@@ -55,6 +55,9 @@ const MainRow = styled.div`
   grid-template-columns: auto;
   & > img{
     margin: 0 auto;
+    width:60%;
+  }
+  & > img#shirtImage{
     width:50%;
   }
   & > form{
