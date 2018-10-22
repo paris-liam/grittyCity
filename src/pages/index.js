@@ -10,8 +10,7 @@ const GritGrid = styled.div`
   background-color:black;
   margin:0;
   display:grid;
-  height:80%;
-  grid-template-rows:1fr;
+  grid-template-rows:80vh;
   grid-template-columns:1fr 1fr 1fr;
   grid-template-areas:'imageRow mainRow image2Row';
   & > *{
@@ -22,9 +21,6 @@ const GritGrid = styled.div`
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas: 'mainRow';
-   }
-   @media only screen and (min-width:1300px){
-    grid-template-columns:1fr 1fr 1fr;
    }
 `
 
@@ -62,10 +58,10 @@ const MainRow = styled.div`
   }
   & > img{
     margin: 0 auto;
-    width:70%;
+    width:60%;
   }
   & > #shirtImage{
-    width:90%;
+    width:80%;
     padding-bottom:5vh;
   }
   & > form{
@@ -114,6 +110,7 @@ class IndexPage extends React.Component{
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_s-xclick"/>
         <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74"/>
+        <input type="hidden" name="shipping" value='0'/>
         <input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0">
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
