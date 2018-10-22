@@ -8,9 +8,8 @@ import styled from 'styled-components';
 import pretzel from '../images/PRETZEL.gif';
 import creamcheese from '../images/creamcheese.png';
 import HeaderImg from '../images/headerIMG.png';
-
 import './layout.css'
-
+//what
 const GritGrid = styled.div`
   background-color:black;
   margin:0;
