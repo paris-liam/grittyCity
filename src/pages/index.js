@@ -55,10 +55,7 @@ const MainRow = styled.div`
   grid-template-columns: auto;
   & > img{
     margin: 0 auto;
-    width:60%;
-  }
-  & > img.image2{
-    display:none;
+    width:50%;
   }
   & > form{
     background-color:black;
