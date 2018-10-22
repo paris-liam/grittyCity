@@ -54,22 +54,21 @@ const MainRow = styled.div`
     text-align:center;
     color:white;
   & > p{
-    margin: 0 auto;
+    margin: 1vh auto 1vh  auto;
+    width:80%;
   }
   & > img{
     margin: 0 auto;
-    width:60%;
+    width:50%;
   }
   & > #shirtImage{
-    width:80%;
-    padding-bottom:5vh;
+    width:70%;
   }
   & > form{
     background-color:black;
     color:white;
     width:100%;
     text-align:center;
-    margin-top:2vh;
     display:grid;
     grid-template-columns:auto;
     grid-template-rows:auto auto;
@@ -106,7 +105,7 @@ class IndexPage extends React.Component{
         <MainRow>
       <img src={HeaderImg}  />
       <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
-      <p>Each shirt made to order. Please allow one week for shipping</p>
+      <p>Each shirt made to order.<br/>Please allow one week for shipping.</p>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_s-xclick"/>
         <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74"/>
