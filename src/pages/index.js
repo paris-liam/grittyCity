@@ -115,7 +115,7 @@ class IndexPage extends React.Component{
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_s-xclick"/>
         <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74"/>
-        <input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0">
+        <input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0"/>
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
           <option value="LARGE">LARGE </option>
