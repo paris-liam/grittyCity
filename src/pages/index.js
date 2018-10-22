@@ -75,13 +75,6 @@ const MainRow = styled.div`
       margin: 0 auto;
     }
   }
-
-    @media only screen and (min-width:1300px){
-      & > img{
-        margin: 0 auto;
-        width:60%;
-      }
-    }
   `
 
 class IndexPage extends React.Component{
