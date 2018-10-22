@@ -114,18 +114,17 @@ class IndexPage extends React.Component{
         <MainRow>
       <img src={HeaderImg}  />
       <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} />
-      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
-         <input type="hidden" name="cmd" value="_s-xclick"/>
-         <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
-             <input type="hidden" name="on0" value="Sizes"></input>
-         <select name="os0">
-           <option value="small">small </option>
-           <option value="medium">medium </option>
-           <option value="large">large </option>
-           <option value="xl">xl </option>
-         </select>
-         <input style={{margin:'0 auto'}}type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-       <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+      <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74">
+<input type="hidden" name="on0" value="Sizes">Sizes</td></tr><tr><td><select name="os0">
+          <option value="SMALL">SMALL </option>
+          <option value="MEDIUM">MEDIUM </option>
+          <option value="LARGE">LARGE </option>
+          <option value="XL">XL </option>
+        </select>
+        <input style={{margin:'0 auto'}} type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
       </form>
       </MainRow>
       <ImageRow style={{gridArea:'image2Row'}}>
