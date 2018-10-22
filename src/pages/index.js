@@ -117,7 +117,7 @@ class IndexPage extends React.Component{
       </ImageRow>
         <MainRow>
       <img src={HeaderImg}  />
-      <img id='shirtImage' src={shirt}/>
+      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" style={{display:'grid', gridTemplateColumns:'auto', gridRowGap:'2vh'}}>
          <input type="hidden" name="cmd" value="_s-xclick"/>
          <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
