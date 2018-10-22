@@ -51,8 +51,16 @@ const ImageRow = styled.div`
 const MainRow = styled.div`
   grid-area:mainRow;
   display:grid;
-  grid-template-rows:auto auto auto;
+  grid-template-rows:auto auto auto auto;
   grid-template-columns: auto;
+  font-family: "Open Sans";
+
+    text-align:center;
+    color:white;
+  & > p{
+    margin: 0 auto;
+    font-size:.75em;
+  }
   & > img{
     margin: 0 auto;
     width:70%;
@@ -86,17 +94,6 @@ class IndexPage extends React.Component{
     }
     this.toggleCloseup = this.toggleCloseup.bind(this);
   }
-  componentDidMount(){
-    let image = document.getElementById('shirtImage')
-    if(window.innerWidth >= 700){
-      image.addEventListener('mouseover',this.toggleCloseup);
-      image.addEventListener('mouseleave',this.toggleCloseup);
-    }
-    else{
-      console.log('click')
-      image.addEventListener('click',this.toggleCloseup);
-    }
-  }
   toggleCloseup(){
     this.setState((prevState)=>({
       closeup:!prevState.closeup
@@ -113,18 +110,19 @@ class IndexPage extends React.Component{
       </ImageRow>
         <MainRow>
       <img src={HeaderImg}  />
-      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} />
+      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
+      <p>Each shirt made to order. Please allow one week for shipping</p>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74">
-<input type="hidden" name="on0" value="Sizes">Sizes</td></tr><tr><td><select name="os0">
+        <input type="hidden" name="cmd" value="_s-xclick"/>
+        <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74"/>
+        <input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0">
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
           <option value="LARGE">LARGE </option>
           <option value="XL">XL </option>
         </select>
-        <input style={{margin:'0 auto'}} type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        <input style={{margin:'0 auto'}} type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
       </form>
       </MainRow>
       <ImageRow style={{gridArea:'image2Row'}}>

@@ -16,5 +16,13 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families:['Open Sans']
+        }
+      }
+    },
   ],
 }
