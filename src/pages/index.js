@@ -130,7 +130,7 @@ class IndexPage extends React.Component{
 
       <img alt='grittycity' src={HeaderImg}  />
       <img id='shirtImage' alt='shirt' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
-      <p id='first'>$15. Free Shipping.</p>
+      <p id='first'>$15 Free Shipping</p>
       <p id='second'>Each shirt made to order. Please allow one week for shipping.</p>
     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
