@@ -64,6 +64,10 @@ const MainRow = styled.div`
   & > p#second{
     font-size: .75em
   }
+  & > p#third{
+    font-size: .75em;
+    margin-bottom:2vh;
+  }
   & > img{
     margin: 0 auto;
     width:50%;
@@ -96,10 +100,12 @@ class IndexPage extends React.Component{
     super(props);
     this.state ={
       closeup:false,
-      quantity:'1',
-      pickup:true
+      quantity:1,
+      pickup:false,
+      value:'10.00',
     }
     this.toggleCloseup = this.toggleCloseup.bind(this);
+    this.togglePickup = this.togglePickup.bind(this);
   }
   toggleCloseup(){
     this.setState((prevState)=>({
@@ -107,19 +113,26 @@ class IndexPage extends React.Component{
     }))
     console.log(this.state);
   }
+  togglePickup(e){
+    this.setState({
+      pickup:e.target.checked
+    })
+  }
   render(){
     return(
       <Layout><GritGrid>
       <ImageRow style={{gridArea:'imageRow'}}>
-         <img src={creamcheese}></img>
-         <img src={pretzel}></img>
-         <img src={creamcheese}></img>
+         <img alt='creamcheese' src={creamcheese}></img>
+         <img alt='pretzel' src={pretzel}></img>
+         <img alt='creamcheese' src={creamcheese}></img>
       </ImageRow>
         <MainRow>
-      <img src={HeaderImg}  />
-      <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
+
+      <img alt='grittycity' src={HeaderImg}  />
+      <img id='shirtImage' alt='shirt' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
       <p id='first'>$15 Shipped.</p>
       <p id='second'>Each shirt made to order. Please allow one week for shipping.</p>
+      <p id='third'><input type='checkbox' onChange={this.togglePickup}></input>&nbsp;&nbsp;Pickup? (West Philly, $10)</p>
     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
 <input type="hidden" name="business" value="inhouse.phl@gmail.com"/>
@@ -128,18 +141,20 @@ class IndexPage extends React.Component{
 <input type="hidden" name="add" value={this.state.quantity}/>
 
 <input type="hidden" name="item_name" value="GRITTYCITY"/>
-<input type="hidden" name="amount" value="10.00"/>
+<input type="hidden" name="amount" value={this.state.value}/>
 <input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="shipping" value="05.00"/>
+<input type="hidden" name="shipping" value={this.state.pickup ? ('00.00'):('05.00')}/>
 <input type="hidden" name="shipping2" value="00.00"/>
-<div>
-<input type="hidden" name="on0" value="Sizes"/>Sizes&nbsp;<select name="os0">
+<div><input type="hidden" name="on0" value="Sizes"/>Size&nbsp;<select name="os0">
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
           <option value="LARGE">LARGE </option>
           <option value="XL">XL </option>
+        </select></div>
+        <input type="hidden" name="on1" value="Pickup"/><select style={{display:'none'}} value={this.state.pickup} name="os1">
+          <option value='true'>Yes </option>
+          <option value="false">No </option>
         </select>
-</div>
 <input style={{margin:'0 auto'}} type="image" name="submit"
   src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
   alt="Add to Cart"/>
@@ -148,9 +163,9 @@ class IndexPage extends React.Component{
 </form>
       </MainRow>
       <ImageRow style={{gridArea:'image2Row'}}>
-         <img src={pretzel}></img>
-         <img src={creamcheese}></img>
-         <img src={pretzel}></img>
+         <img alt='pretzel' src={pretzel}></img>
+         <img alt='creamcheese' src={creamcheese}></img>
+         <img alt='pretzel' src={pretzel}></img>
       </ImageRow>
       </GritGrid></Layout>
     )
