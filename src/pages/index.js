@@ -56,7 +56,7 @@ const MainRow = styled.div`
   & > p{
     margin: 1vh auto 1vh  auto;
     width:85%;
-    line-height:1
+    line-height:1.25
   }
   & > p#first{
     font-size: 1.25em
