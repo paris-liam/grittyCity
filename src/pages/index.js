@@ -102,7 +102,7 @@ class IndexPage extends React.Component{
       closeup:false,
       quantity:1,
       pickup:false,
-      value:'10.00',
+      value:'15.00',
     }
     this.toggleCloseup = this.toggleCloseup.bind(this);
     this.togglePickup = this.togglePickup.bind(this);
@@ -130,9 +130,8 @@ class IndexPage extends React.Component{
 
       <img alt='grittycity' src={HeaderImg}  />
       <img id='shirtImage' alt='shirt' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
-      <p id='first'>$15 Shipped.</p>
+      <p id='first'>$15. Free Shipping.</p>
       <p id='second'>Each shirt made to order. Please allow one week for shipping.</p>
-      <p id='third'><input type='checkbox' onChange={this.togglePickup}></input>&nbsp;&nbsp;Pickup? (West Philly, $10)</p>
     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
 <input type="hidden" name="business" value="inhouse.phl@gmail.com"/>
@@ -143,7 +142,7 @@ class IndexPage extends React.Component{
 <input type="hidden" name="item_name" value="GRITTYCITY"/>
 <input type="hidden" name="amount" value={this.state.value}/>
 <input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="shipping" value={this.state.pickup ? ('00.00'):('05.00')}/>
+<input type="hidden" name="shipping" value='00.00'/>
 <input type="hidden" name="shipping2" value="00.00"/>
 <div><input type="hidden" name="on0" value="Sizes"/>Size&nbsp;<select name="os0">
           <option value="SMALL">SMALL </option>
@@ -151,10 +150,10 @@ class IndexPage extends React.Component{
           <option value="LARGE">LARGE </option>
           <option value="XL">XL </option>
         </select></div>
-        <input type="hidden" name="on1" value="Pickup"/><select style={{display:'none'}} value={this.state.pickup} name="os1">
+        {/*<input type="hidden" name="on1" value="Pickup"/><select style={{display:'none'}} value={this.state.pickup} name="os1">
           <option value='true'>Yes </option>
           <option value="false">No </option>
-        </select>
+        </select>*/}
 <input style={{margin:'0 auto'}} type="image" name="submit"
   src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
   alt="Add to Cart"/>
