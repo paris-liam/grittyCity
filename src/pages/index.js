@@ -47,7 +47,7 @@ const ImageRow = styled.div`
 const MainRow = styled.div`
   grid-area:mainRow;
   display:grid;
-  grid-template-rows:auto auto auto auto;
+  grid-template-rows:auto auto auto auto auto;
   grid-template-columns: auto;
   font-family: "Open Sans";
 
@@ -55,7 +55,13 @@ const MainRow = styled.div`
     color:white;
   & > p{
     margin: 1vh auto 1vh  auto;
-    width:80%;
+    width:85%;
+  }
+  & > p#first{
+    font-size: 1.25em
+  }
+  & > p#second{
+    font-size: .75em
   }
   & > img{
     margin: 0 auto;
@@ -105,11 +111,11 @@ class IndexPage extends React.Component{
         <MainRow>
       <img src={HeaderImg}  />
       <img id='shirtImage' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
-      <p>Each shirt made to order.<br/>Please allow one week for shipping.</p>
+      <p id='first'>$15 Shipped.</p>
+      <p id='second'>Each shirt made to order. Please allow one week for shipping.</p>
       <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_s-xclick"/>
-        <input type="hidden" name="hosted_button_id" value="VYHW7DWSNDR74"/>
-        <input type="hidden" name="shipping" value='0'/>
+        <input type="hidden" name="hosted_button_id" value="6WLDEUCDJZ4GU"/>
         <input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0">
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
