@@ -95,7 +95,9 @@ class IndexPage extends React.Component{
   constructor(props){
     super(props);
     this.state ={
-      closeup:false
+      closeup:false,
+      quantity:'1',
+      pickup:true
     }
     this.toggleCloseup = this.toggleCloseup.bind(this);
   }
@@ -123,19 +125,21 @@ class IndexPage extends React.Component{
 <input type="hidden" name="business" value="inhouse.phl@gmail.com"/>
 
 <input type="hidden" name="cmd" value="_cart"/>
-<input type="hidden" name="add" value="1"/>
+<input type="hidden" name="add" value={this.state.quantity}/>
 
-<input type="hidden" name="item_name" value="GCITY"/>
+<input type="hidden" name="item_name" value="GRITTYCITY"/>
 <input type="hidden" name="amount" value="10.00"/>
+<input type="hidden" name="currency_code" value="USD"/>
 <input type="hidden" name="shipping" value="05.00"/>
 <input type="hidden" name="shipping2" value="00.00"/>
-<input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="on0" value="Sizes"/>Sizes<select name="os0">
+<div>
+<input type="hidden" name="on0" value="Sizes"/>Sizes&nbsp;<select name="os0">
           <option value="SMALL">SMALL </option>
           <option value="MEDIUM">MEDIUM </option>
           <option value="LARGE">LARGE </option>
           <option value="XL">XL </option>
         </select>
+</div>
 <input style={{margin:'0 auto'}} type="image" name="submit"
   src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
   alt="Add to Cart"/>
