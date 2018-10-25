@@ -83,7 +83,7 @@ const MainRow = styled.div`
     text-transform:uppercase;
     margin:1vh auto 0 auto;
     text-align:center;
-    width:30%;
+    width:35%;
     padding:0;
     border-radius:2vh;
     outline:white;
@@ -91,7 +91,7 @@ const MainRow = styled.div`
     background-color:black;
     color:white;
     @media only screen and (max-width:1100px) and (min-width:700px){
-      width:50%;
+      width:60%;
       height:50%;
     }
   }
