@@ -79,7 +79,7 @@ const MainRow = styled.div`
   & > #shirtImage{
     width:70%;
   }
-  & > button{
+  & > a > button{
     text-transform:uppercase;
     margin:1vh auto 0 auto;
     text-align:center;
@@ -148,7 +148,7 @@ class IndexPage extends React.Component{
       <img id='shirtImage' alt='shirt' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
       <p id='first'>$15 Free Shipping</p>
       <p id='second'>Each shirt made to order.<br/>Please allow one week for shipping.</p>
-      <button href='https://grittycityphl.bigcartel.com/'>Order Now</button>
+      <a href='https://grittycityphl.bigcartel.com/'><button >Order Now</button></a>
       </MainRow>
       <ImageRow style={{gridArea:'image2Row'}}>
          <img alt='pretzel' src={pretzel}></img>
