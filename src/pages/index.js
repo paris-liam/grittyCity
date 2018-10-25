@@ -79,6 +79,22 @@ const MainRow = styled.div`
   & > #shirtImage{
     width:70%;
   }
+  & > button{
+    text-transform:uppercase;
+    margin:1vh auto 0 auto;
+    text-align:center;
+    width:30%;
+    padding:0;
+    border-radius:2vh;
+    outline:white;
+    border:1px solid white;
+    background-color:black;
+    color:white;
+    @media only screen and (max-width:1100px) and (min-width:700px){
+      width:50%;
+      height:50%;
+    }
+  }
   & > form{
     background-color:black;
     color:white;
@@ -132,34 +148,7 @@ class IndexPage extends React.Component{
       <img id='shirtImage' alt='shirt' src={this.state.closeup ? (closeup):(shirt)} onClick={this.toggleCloseup}/>
       <p id='first'>$15 Free Shipping</p>
       <p id='second'>Each shirt made to order.<br/>Please allow one week for shipping.</p>
-    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
-
-<input type="hidden" name="business" value="inhouse.phl@gmail.com"/>
-
-<input type="hidden" name="cmd" value="_cart"/>
-<input type="hidden" name="add" value={this.state.quantity}/>
-
-<input type="hidden" name="item_name" value="GRITTYCITY"/>
-<input type="hidden" name="amount" value={this.state.value}/>
-<input type="hidden" name="currency_code" value="USD"/>
-<input type="hidden" name="shipping" value='00.00'/>
-<input type="hidden" name="shipping2" value="00.00"/>
-<div><input type="hidden" name="on0" value="Sizes"/>Size&nbsp;<select name="os0">
-          <option value="SMALL">SMALL </option>
-          <option value="MEDIUM">MEDIUM </option>
-          <option value="LARGE">LARGE </option>
-          <option value="XL">XL </option>
-        </select></div>
-        {/*<input type="hidden" name="on1" value="Pickup"/><select style={{display:'none'}} value={this.state.pickup} name="os1">
-          <option value='true'>Yes </option>
-          <option value="false">No </option>
-        </select>*/}
-<input style={{margin:'0 auto'}} type="image" name="submit"
-  src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-  alt="Add to Cart"/>
-<img alt="" width="1" height="1"
-  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"/>
-</form>
+      <button href='https://grittycityphl.bigcartel.com/'>Order Now</button>
       </MainRow>
       <ImageRow style={{gridArea:'image2Row'}}>
          <img alt='pretzel' src={pretzel}></img>
